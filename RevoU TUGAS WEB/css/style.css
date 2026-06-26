@@ -1,0 +1,165 @@
+/* CSS Variables untuk Tema */
+:root {
+    --bg-color: #f4f6f9;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --border-color: #e0e0e0;
+    --danger-color: #dc3545;
+    --danger-bg: #ffebee;
+    --success-color: #28a745;
+    --chart-bar: #17a2b8;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+    --danger-bg: #4a0000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.budget-setup {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    flex: 1;
+    min-width: 120px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.balance-info h2 { font-size: 1.2rem; }
+.balance-info h3 { font-size: 2rem; color: var(--primary-color); }
+
+/* Class peringatan (Challenge: Limit Budget) */
+.over-budget h3 { color: var(--danger-color); }
+.over-budget-card { background-color: var(--danger-bg); border: 1px solid var(--danger-color); }
+.status-text { font-size: 0.9rem; font-weight: bold; }
+
+/* Visual Chart CSS (Vanilla style) */
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bar-label { width: 90px; font-size: 0.85rem; }
+.bar-track {
+    flex: 1;
+    background-color: var(--border-color);
+    border-radius: 5px;
+    height: 15px;
+    overflow: hidden;
+}
+.bar-fill {
+    height: 100%;
+    background-color: var(--chart-bar);
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+.bar-value { width: 70px; font-size: 0.85rem; text-align: right; }
+
+#transactionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.transaction-list {
+    list-style: none;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.transaction-item:last-child { border-bottom: none; }
+.t-info { display: flex; flex-direction: column; }
+.t-category { font-size: 0.8rem; color: #888; }
+.t-amount { font-weight: bold; color: var(--danger-color); }
+.delete-btn { background: none; color: var(--danger-color); padding: 0; margin-left: 10px; font-size: 1.2rem; }
